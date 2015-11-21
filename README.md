@@ -13,3 +13,7 @@ I initially wrote this for my own use in producing the live broadcast of our hig
 ## Other ways to contribute
 
 If you can't help with the programming, feel free to contribute by using the application and opening Issues on GitHub when you find a bug or have a suggestion.  Alternatively, you could just help pay the bills by leaving some gratuity at https://gratipay.com/joshua_carroll/.
+
+## Copyright and license
+
+Code and documentation copyright 2015 Joshua Carroll.  Code released under [the MIT license](https://github.com/twbs/bootstrap/blob/master/LICENSE). 
