@@ -2,6 +2,8 @@ TweetCaster
 ===========
 TweetCaster is a Windows desktop application written in C# that is made for use by anyone producing a video broadcast, podcast or live stream, which allows one to easily incorporate feedback from viewers through social media.
 
+![capture](https://cloud.githubusercontent.com/assets/2617394/11320654/00d0bf50-9066-11e5-8a5c-702753743fd9.PNG)
+
 ## Initial installation (quick & dirty documented)
 
 The only system prerequisite is .NET Framework v4.5.  Upon initial installation the program will create a new local database in the user's roaming app data folder for the data queue and user settings.
