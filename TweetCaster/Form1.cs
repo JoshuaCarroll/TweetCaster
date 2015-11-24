@@ -19,7 +19,6 @@ namespace TweetCaster
         ArrayList TweetQueue = new ArrayList();
         bool alreadyStopping = false;
 
-        // Setup your credentials to the API
         private string consumerKey;
         private string consumerSecret;
         private string accessToken;
@@ -29,10 +28,11 @@ namespace TweetCaster
         {
             InitializeComponent();
 
-            consumerKey = "UGtYegZHpfTq2wSZUhr82ugDt";
-            consumerSecret = "P9R4mZywqMzKNcrdxJZ4dsraqXDQqJ1ST815aEhFQmknurVhfS";
-            accessToken = "21025456-f5zJRhf0FiJva36uiUCoK9YSLTA03Nbbe3lAVTVZB";
-            accessTokenSecret = "E8jmxmnV9ya9RsLMfxkPNYVztthee3GRQoBo1FtGe0yKN";
+            // Setup your credentials to the API
+            consumerKey = "";
+            consumerSecret = "";
+            accessToken = "";
+            accessTokenSecret = "";
         }
 
         private void Form1_Load(object caller, EventArgs e)
