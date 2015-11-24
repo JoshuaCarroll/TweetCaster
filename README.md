@@ -1,5 +1,7 @@
 TweetCaster
 ===========
+
+[![Join the chat at https://gitter.im/JoshuaCarroll/TweetCaster](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/JoshuaCarroll/TweetCaster?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 TweetCaster is a Windows desktop application written in C# that is made for use by anyone producing a video broadcast, podcast or live stream, which allows one to easily incorporate feedback from viewers through social media.
 
 ![capture](https://cloud.githubusercontent.com/assets/2617394/11320654/00d0bf50-9066-11e5-8a5c-702753743fd9.PNG)
