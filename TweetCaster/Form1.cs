@@ -19,20 +19,9 @@ namespace TweetCaster
         ArrayList TweetQueue = new ArrayList();
         bool alreadyStopping = false;
 
-        private string consumerKey;
-        private string consumerSecret;
-        private string accessToken;
-        private string accessTokenSecret;
-
         public Form1()
         {
             InitializeComponent();
-
-            // Setup your credentials to the API
-            consumerKey = "";
-            consumerSecret = "";
-            accessToken = "";
-            accessTokenSecret = "";
         }
 
         private void Form1_Load(object caller, EventArgs e)
@@ -49,7 +38,7 @@ namespace TweetCaster
 
             try
             {
-                TwitterCredentials.SetCredentials(accessToken, accessTokenSecret, consumerKey, consumerSecret);
+                TwitterCredentials.SetCredentials(TwitterKeys.accessToken, TwitterKeys.accessTokenSecret, TwitterKeys.consumerKey, TwitterKeys.consumerSecret);
             }
             catch (Exception ex)
             {
@@ -67,10 +56,11 @@ namespace TweetCaster
             userStream.TweetFavouritedByMe += (s, a) =>
             {
                 TweetQueue.Add(a);
-                txtTweetQueue.Text = string.Format(tweetFormat, a.Tweet.Creator.ProfileImageUrl, a.Tweet.Creator.Name, a.Tweet.Creator.ScreenName, formatTweetText(a.Tweet.Text)) + txtTweetQueue.Text;
+                txtTweetQueue.Text += string.Format(tweetFormat, a.Tweet.Creator.ProfileImageUrl, a.Tweet.Creator.Name, a.Tweet.Creator.ScreenName, formatTweetText(a.Tweet.Text)) + txtTweetQueue.Text;
             };
 
             userStream.StartStreamAsync();
+            txtTweetQueue.Text += "Stream is active.\r\n\r\n";
         }
 
         private string buildErrorMessage(string actionBeingAttempted, Exception ex)
