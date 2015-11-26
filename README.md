@@ -1,4 +1,4 @@
-![Twitter bird with stylistic flames](https://cloud.githubusercontent.com/assets/2617394/11414975/ff23e5c4-93c1-11e5-9d7a-409ad7896dfe.png)TweetCaster
+![Twitter bird with stylistic flames](https://cloud.githubusercontent.com/assets/2617394/11415226/effa56b0-93c5-11e5-86a4-5cb6772280d6.png)TweetCaster
 ===========
 
 [![Join the chat at https://gitter.im/JoshuaCarroll/TweetCaster](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/JoshuaCarroll/TweetCaster?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
