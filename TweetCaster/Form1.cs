@@ -27,7 +27,6 @@ namespace TweetCaster
         private void Form1_Load(object caller, EventArgs e)
         {
             // Clear the form, hide the graphic
-            // Set to the starting point
             lblName.Text = "";
             lblScreenName.Text = "";
             txtTweet.Text = "";
@@ -36,16 +35,24 @@ namespace TweetCaster
             imgTweet.Visible = false;
             pnlCurtain.Width = pnlTweet.Width;
 
+            bool credentialsSet = false;
+
+            ///TODO: Make sure keys are provided
+
             try
             {
                 TwitterCredentials.SetCredentials(TwitterKeys.accessToken, TwitterKeys.accessTokenSecret, TwitterKeys.consumerKey, TwitterKeys.consumerSecret);
+                credentialsSet = true;
             }
             catch (Exception ex)
             {
                 txtTweetQueue.Text += buildErrorMessage("setting credentials", ex);
             }
 
-            startStream();
+            if (credentialsSet)
+            {
+                startStream();
+            }
         }
 
         private void startStream()

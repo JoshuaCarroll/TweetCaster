@@ -31,9 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pnlTweet = new System.Windows.Forms.Panel();
+            this.pnlCurtain = new System.Windows.Forms.Panel();
+            this.imgTweet = new System.Windows.Forms.PictureBox();
             this.txtTweet = new System.Windows.Forms.Label();
             this.lblScreenName = new System.Windows.Forms.Label();
-            this.pnlCurtain = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
             this.txtAutoRotateCount = new System.Windows.Forms.TextBox();
@@ -46,14 +47,16 @@
             this.toolStripStatusLabelTweetQueue = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelTweetQueueCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtTweetQueue = new System.Windows.Forms.TextBox();
-            this.imgTweet = new System.Windows.Forms.PictureBox();
             this.timerShowTweetBox = new System.Windows.Forms.Timer(this.components);
             this.timerHideTweetBox = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTweet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgTweet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgTweet)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTweet
@@ -69,10 +72,28 @@
             this.pnlTweet.Controls.Add(this.lblScreenName);
             this.pnlTweet.Controls.Add(this.lblName);
             this.pnlTweet.Controls.Add(this.imgAvatar);
-            this.pnlTweet.Location = new System.Drawing.Point(12, 12);
+            this.pnlTweet.Location = new System.Drawing.Point(12, 27);
             this.pnlTweet.Name = "pnlTweet";
             this.pnlTweet.Size = new System.Drawing.Size(1206, 165);
             this.pnlTweet.TabIndex = 0;
+            // 
+            // pnlCurtain
+            // 
+            this.pnlCurtain.Location = new System.Drawing.Point(3, 3);
+            this.pnlCurtain.Name = "pnlCurtain";
+            this.pnlCurtain.Size = new System.Drawing.Size(1, 159);
+            this.pnlCurtain.TabIndex = 1;
+            // 
+            // imgTweet
+            // 
+            this.imgTweet.BackColor = System.Drawing.Color.Transparent;
+            this.imgTweet.ErrorImage = ((System.Drawing.Image)(resources.GetObject("imgTweet.ErrorImage")));
+            this.imgTweet.Location = new System.Drawing.Point(1033, 22);
+            this.imgTweet.Name = "imgTweet";
+            this.imgTweet.Size = new System.Drawing.Size(126, 67);
+            this.imgTweet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgTweet.TabIndex = 12;
+            this.imgTweet.TabStop = false;
             // 
             // txtTweet
             // 
@@ -100,13 +121,6 @@
             this.lblScreenName.TabIndex = 10;
             this.lblScreenName.Text = "@PersonName";
             // 
-            // pnlCurtain
-            // 
-            this.pnlCurtain.Location = new System.Drawing.Point(3, 3);
-            this.pnlCurtain.Name = "pnlCurtain";
-            this.pnlCurtain.Size = new System.Drawing.Size(1, 159);
-            this.pnlCurtain.TabIndex = 1;
-            // 
             // lblName
             // 
             this.lblName.AutoSize = true;
@@ -132,16 +146,18 @@
             // 
             // txtAutoRotateCount
             // 
-            this.txtAutoRotateCount.Location = new System.Drawing.Point(377, 185);
+            this.txtAutoRotateCount.Location = new System.Drawing.Point(377, 200);
             this.txtAutoRotateCount.Name = "txtAutoRotateCount";
             this.txtAutoRotateCount.Size = new System.Drawing.Size(21, 20);
             this.txtAutoRotateCount.TabIndex = 15;
-            this.txtAutoRotateCount.Text = "5";
+            this.txtAutoRotateCount.Text = "3";
             // 
             // chkAutoRotate
             // 
             this.chkAutoRotate.AutoSize = true;
-            this.chkAutoRotate.Location = new System.Drawing.Point(198, 187);
+            this.chkAutoRotate.Checked = true;
+            this.chkAutoRotate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAutoRotate.Location = new System.Drawing.Point(198, 202);
             this.chkAutoRotate.Name = "chkAutoRotate";
             this.chkAutoRotate.Size = new System.Drawing.Size(181, 17);
             this.chkAutoRotate.TabIndex = 14;
@@ -152,7 +168,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(610, 188);
+            this.label1.Location = new System.Drawing.Point(610, 203);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 13;
@@ -161,7 +177,7 @@
             // txtPromotionTweet
             // 
             this.txtPromotionTweet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPromotionTweet.Location = new System.Drawing.Point(709, 185);
+            this.txtPromotionTweet.Location = new System.Drawing.Point(709, 200);
             this.txtPromotionTweet.Name = "txtPromotionTweet";
             this.txtPromotionTweet.Size = new System.Drawing.Size(509, 20);
             this.txtPromotionTweet.TabIndex = 12;
@@ -169,7 +185,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(93, 183);
+            this.button2.Location = new System.Drawing.Point(93, 198);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 11;
@@ -179,7 +195,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 183);
+            this.button1.Location = new System.Drawing.Point(12, 198);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
@@ -192,7 +208,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelTweetQueue,
             this.toolStripStatusLabelTweetQueueCount});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 393);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 420);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1230, 22);
             this.statusStrip1.TabIndex = 16;
@@ -215,22 +231,11 @@
             this.txtTweetQueue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTweetQueue.Location = new System.Drawing.Point(12, 212);
+            this.txtTweetQueue.Location = new System.Drawing.Point(12, 227);
             this.txtTweetQueue.Multiline = true;
             this.txtTweetQueue.Name = "txtTweetQueue";
-            this.txtTweetQueue.Size = new System.Drawing.Size(1206, 178);
+            this.txtTweetQueue.Size = new System.Drawing.Size(1206, 190);
             this.txtTweetQueue.TabIndex = 17;
-            // 
-            // imgTweet
-            // 
-            this.imgTweet.BackColor = System.Drawing.Color.Transparent;
-            this.imgTweet.ErrorImage = ((System.Drawing.Image)(resources.GetObject("imgTweet.ErrorImage")));
-            this.imgTweet.Location = new System.Drawing.Point(1033, 22);
-            this.imgTweet.Name = "imgTweet";
-            this.imgTweet.Size = new System.Drawing.Size(126, 67);
-            this.imgTweet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgTweet.TabIndex = 12;
-            this.imgTweet.TabStop = false;
             // 
             // timerShowTweetBox
             // 
@@ -247,13 +252,30 @@
             this.timer1.Interval = 8000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setupToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1230, 24);
+            this.menuStrip1.TabIndex = 18;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // setupToolStripMenuItem
+            // 
+            this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
+            this.setupToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.setupToolStripMenuItem.Text = "Settings";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1230, 415);
+            this.ClientSize = new System.Drawing.Size(1230, 442);
             this.Controls.Add(this.txtTweetQueue);
             this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.txtAutoRotateCount);
             this.Controls.Add(this.chkAutoRotate);
             this.Controls.Add(this.label1);
@@ -261,6 +283,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlTweet);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TweetCaster";
@@ -268,10 +292,12 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlTweet.ResumeLayout(false);
             this.pnlTweet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgTweet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgTweet)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,6 +325,8 @@
         private System.Windows.Forms.Timer timerShowTweetBox;
         private System.Windows.Forms.Timer timerHideTweetBox;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem setupToolStripMenuItem;
     }
 }
 
