@@ -60,14 +60,31 @@ namespace TweetCaster
             string tweetFormat = "{0}\r\n{1} (@{2})\r\n{3}\r\n\r\n\r\n";
 
             var userStream = Stream.CreateUserStream();
+
             userStream.TweetFavouritedByMe += (s, a) =>
             {
                 TweetQueue.Add(a);
+                updateStatusbar();
                 txtTweetQueue.Text += string.Format(tweetFormat, a.Tweet.Creator.ProfileImageUrl, a.Tweet.Creator.Name, a.Tweet.Creator.ScreenName, formatTweetText(a.Tweet.Text)) + txtTweetQueue.Text;
+
+
             };
 
             userStream.StartStreamAsync();
             txtTweetQueue.Text += "Stream is active.\r\n\r\n";
+        }
+
+        private void checkAutoRotateCount()
+        {
+            int intAutoRotateCount = 0;
+
+            if (int.TryParse(txtAutoRotateCount.Text, out intAutoRotateCount))
+            {
+                if (TweetQueue.Count >= intAutoRotateCount)
+                {
+                    button1_Click(new object(), new EventArgs());
+                }
+            }
         }
 
         private string buildErrorMessage(string actionBeingAttempted, Exception ex)
@@ -171,13 +188,13 @@ namespace TweetCaster
             }
             else
             {
-                timerShowTweetBox.Enabled = true;
-
                 imgAvatar.Image = imgAvatar.ErrorImage;
+                
                 lblName.Text = "";
                 lblScreenName.Text = "";
                 txtTweet.Text = txtPromotionTweet.Text;
-
+                timerShowTweetBox.Enabled = true;
+                
                 // Start the timer
                 timer1.Enabled = true;
             }
@@ -202,7 +219,40 @@ namespace TweetCaster
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            // Stop the timer
+            timer1.Enabled = false;
 
+            // If there are no more tweets in the array hide the tweet bar and stop
+            if (TweetQueue.Count <= 0)
+            {
+                if (alreadyStopping)
+                {
+                    // Hide the box
+                    timerHideTweetBox.Enabled = true;
+                }
+                else
+                {
+                    alreadyStopping = true;
+
+                    imgAvatar.Image = imgAvatar.ErrorImage;
+                    lblName.Text = "";
+                    lblScreenName.Text = "";
+                    txtTweet.Text = txtPromotionTweet.Text;
+                    imgTweet.Visible = false;
+
+                    // Start the timer
+                    timer1.Enabled = true;
+                }
+            }
+            else
+            {
+                alreadyStopping = false;
+
+                displayFirstTweetInQueue();
+
+                // Start the timer
+                timer1.Enabled = true;
+            }
         }
 
         private void timerShowTweetBox_Tick(object sender, EventArgs e)
@@ -236,6 +286,11 @@ namespace TweetCaster
             {
                 timerHideTweetBox.Enabled = false;
             }
+        }
+
+        private void txtAutoRotateCount_Leave(object sender, EventArgs e)
+        {
+            checkAutoRotateCount();
         }
     }
 }

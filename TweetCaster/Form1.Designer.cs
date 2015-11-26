@@ -151,6 +151,7 @@
             this.txtAutoRotateCount.Size = new System.Drawing.Size(21, 20);
             this.txtAutoRotateCount.TabIndex = 15;
             this.txtAutoRotateCount.Text = "3";
+            this.txtAutoRotateCount.Leave += new System.EventHandler(this.txtAutoRotateCount_Leave);
             // 
             // chkAutoRotate
             // 
@@ -168,11 +169,11 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(610, 203);
+            this.label1.Location = new System.Drawing.Point(598, 203);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.Size = new System.Drawing.Size(105, 13);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Promotion tweet: ";
+            this.label1.Text = "Promotion message: ";
             // 
             // txtPromotionTweet
             // 
